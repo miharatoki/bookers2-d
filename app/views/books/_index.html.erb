@@ -5,6 +5,7 @@
       <th>Title</th>
       <th>Opinion</th>
       <th></th>
+      <th></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -24,7 +25,19 @@
           コメント数:
           <%= book.book_comments.count %>
         </th>
+        <td class="rate-stars"></td>
       </tr>
+        <script>
+          $('.rate-stars').raty({
+            size  : 36,
+            starOn: '<%= asset_path('star-on.png') %>',
+            starOff: "<%= asset_path('star-off.png') %>",
+            starHalf: "<%= asset_path('star-half.png') %>",
+            score: '<%= book.rate %>',
+            half: true,
+            readOnly: true,
+          });
+        </script>
     <% end %>
   </tbody>
 </table>
