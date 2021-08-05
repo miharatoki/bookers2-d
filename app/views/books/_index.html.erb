@@ -25,10 +25,10 @@
           コメント数:
           <%= book.book_comments.count %>
         </th>
-        <td class="rate-stars"></td>
+        <td class="rate-stars-<%= book.id %>"></td>
       </tr>
         <script>
-          $('.rate-stars').raty({
+          $('.rate-stars-<%= book.id %>').raty({
             size  : 36,
             starOn: '<%= asset_path('star-on.png') %>',
             starOff: "<%= asset_path('star-off.png') %>",
