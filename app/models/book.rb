@@ -26,4 +26,7 @@ class Book < ApplicationRecord
 	  greater_than_or_equal_to: 0.5}, presence: true
 
 
+    scope :created, -> {order(created_at: :desc)}
+    scope :rate, -> {order(rate: :desc)}
+
 end
