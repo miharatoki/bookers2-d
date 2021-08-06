@@ -7,16 +7,8 @@ class Book < ApplicationRecord
 		favorites.where(user_id: user.id).exists?
 	end
   
-  def self.looks(searchs, words)
-    if searchs == "perfect_match"
-      @books = Book.where("title LIKE ?", "#{words}")
-    elsif searchs == "partial_match"
-      @books = Book.where("title LIKE ?", "%#{words}%")
-    elsif searchs == "forward_match"
-      @books = Book.where("title LIKE ?", "#{words}%")
-    elsif searchs == "rear_match"
-      @books = Book.where("title LIKE ?", "%#{words}")
-    end
+  def self.looks(word)
+      @books = Book.where("category LIKE ?", "#{word}")
   end
 
 	validates :title, presence: true
